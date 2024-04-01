@@ -1,0 +1,8 @@
+D:\Development\kleiton18\Geography Quiz Game\Geography Quiz Game\bin\Debug\Geography Quiz Game.exe.config
+D:\Development\kleiton18\Geography Quiz Game\Geography Quiz Game\bin\Debug\Geography Quiz Game.exe
+D:\Development\kleiton18\Geography Quiz Game\Geography Quiz Game\bin\Debug\Geography Quiz Game.pdb
+D:\Development\kleiton18\Geography Quiz Game\Geography Quiz Game\obj\Debug\Geography Quiz Game.csproj.AssemblyReference.cache
+D:\Development\kleiton18\Geography Quiz Game\Geography Quiz Game\obj\Debug\Geography Quiz Game.csproj.SuggestedBindingRedirects.cache
+D:\Development\kleiton18\Geography Quiz Game\Geography Quiz Game\obj\Debug\Geography Quiz Game.csproj.CoreCompileInputs.cache
+D:\Development\kleiton18\Geography Quiz Game\Geography Quiz Game\obj\Debug\Geography Quiz Game.exe
+D:\Development\kleiton18\Geography Quiz Game\Geography Quiz Game\obj\Debug\Geography Quiz Game.pdb
