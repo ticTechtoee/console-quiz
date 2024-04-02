@@ -1,0 +1,6 @@
+D:\Farhan\game_app\console-quiz\Geography Quiz Game\bin\Release\Geography Quiz Game.exe.config
+D:\Farhan\game_app\console-quiz\Geography Quiz Game\bin\Release\Geography Quiz Game.exe
+D:\Farhan\game_app\console-quiz\Geography Quiz Game\bin\Release\Geography Quiz Game.pdb
+D:\Farhan\game_app\console-quiz\Geography Quiz Game\obj\Release\Geography Quiz Game.csproj.CoreCompileInputs.cache
+D:\Farhan\game_app\console-quiz\Geography Quiz Game\obj\Release\Geography Quiz Game.exe
+D:\Farhan\game_app\console-quiz\Geography Quiz Game\obj\Release\Geography Quiz Game.pdb

@@ -6,3 +6,10 @@ D:\Development\kleiton18\Geography Quiz Game\Geography Quiz Game\obj\Debug\Geogr
 D:\Development\kleiton18\Geography Quiz Game\Geography Quiz Game\obj\Debug\Geography Quiz Game.csproj.CoreCompileInputs.cache
 D:\Development\kleiton18\Geography Quiz Game\Geography Quiz Game\obj\Debug\Geography Quiz Game.exe
 D:\Development\kleiton18\Geography Quiz Game\Geography Quiz Game\obj\Debug\Geography Quiz Game.pdb
+D:\Farhan\game_app\console-quiz\Geography Quiz Game\obj\Debug\Geography Quiz Game.csprojAssemblyReference.cache
+D:\Farhan\game_app\console-quiz\Geography Quiz Game\obj\Debug\Geography Quiz Game.csproj.CoreCompileInputs.cache
+D:\Farhan\game_app\console-quiz\Geography Quiz Game\obj\Debug\Geography Quiz Game.exe
+D:\Farhan\game_app\console-quiz\Geography Quiz Game\obj\Debug\Geography Quiz Game.pdb
+D:\Farhan\game_app\console-quiz\Geography Quiz Game\bin\Debug\Geography Quiz Game.exe.config
+D:\Farhan\game_app\console-quiz\Geography Quiz Game\bin\Debug\Geography Quiz Game.exe
+D:\Farhan\game_app\console-quiz\Geography Quiz Game\bin\Debug\Geography Quiz Game.pdb

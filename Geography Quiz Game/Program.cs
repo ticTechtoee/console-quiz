@@ -1,11 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Geography_Quiz_Game
 {
     internal class Program
     {
+        // *CRUD STANDS FOR CREATE, READ, UPDATE AND DELETE
+
+
+        // Problem Statement: There are 3 types of quizes that needs to be *CRUD and play
+        //1-True False, 2-Open Ended Questions, 3-Multiple Choice Questions
         // Define dictionaries to store questions and their answers for each type
         static Dictionary<string, string> trueFalseQuestions = new Dictionary<string, string>();
         static Dictionary<string, string> openEndedQuestions = new Dictionary<string, string>();
@@ -50,7 +56,7 @@ namespace Geography_Quiz_Game
             }
         }
 
-        // Method to create, edit, or delete True or False questions
+        // Method to *CRUD True or False questions
         static void ManageTrueFalseQuestions()
         {
             Console.WriteLine("True or False Questions");
@@ -132,7 +138,7 @@ namespace Geography_Quiz_Game
             }
         }
 
-        // Method to create, edit, or delete Open-Ended questions
+        // Method to *CRUD Open-Ended questions
         static void ManageOpenEndedQuestions()
         {
             Console.WriteLine("Open-Ended Questions");
@@ -216,7 +222,7 @@ namespace Geography_Quiz_Game
             }
         }
 
-        // Method to create, edit, or delete Multiple Choice questions
+        // Method to *CRUD Multiple Choice questions
         static void ManageMultipleChoiceQuestions()
         {
             Console.WriteLine("Multiple Choice Questions");
@@ -257,8 +263,11 @@ namespace Geography_Quiz_Game
 
             if (correctChoiceIndex >= 0 && correctChoiceIndex < choices.Length)
             {
-                // Store the correct choice index as an integer
-                multipleChoiceQuestions.Add(question, choices.Append(correctChoiceIndex.ToString()).ToArray());
+                // Concatenate the correct choice index to the end of the choices array
+                choices = choices.Concat(new[] { correctChoiceIndex.ToString() }).ToArray();
+
+                // Store the question and choices in the dictionary
+                multipleChoiceQuestions.Add(question, choices);
                 Console.WriteLine("Question added successfully.");
             }
             else
@@ -271,7 +280,7 @@ namespace Geography_Quiz_Game
 
         static void EditMultipleChoiceQuestion()
         {
-            Console.WriteLine("Type the question you want to edit:");
+            Console.WriteLine("Select the question you want to edit:");
             DisplayQuestions(multipleChoiceQuestions);
 
             string question = Console.ReadLine();
@@ -291,7 +300,7 @@ namespace Geography_Quiz_Game
                 if (correctChoiceIndex >= 0 && correctChoiceIndex < choices.Length)
                 {
                     // Append the correct choice index to the choices array
-                    choices = choices.Append(correctChoiceIndex.ToString()).ToArray();
+                    choices = choices.Concat(new[] { correctChoiceIndex.ToString() }).ToArray();
 
                     // Remove the old question and add the updated question with its choices
                     multipleChoiceQuestions.Remove(question);
@@ -354,6 +363,10 @@ namespace Geography_Quiz_Game
             Console.WriteLine("3-Multiple Choice");
 
             int questionType = int.Parse(Console.ReadLine());
+            
+            // To record the time start and end
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
 
             switch (questionType)
             {
@@ -370,6 +383,59 @@ namespace Geography_Quiz_Game
                     Console.WriteLine("Invalid choice.");
                     break;
             }
+
+            stopwatch.Stop();
+            TimeSpan elapsedTime = stopwatch.Elapsed;
+
+            // Calculate total hours, minutes, and seconds
+            int hours = (int)elapsedTime.TotalHours;
+            int minutes = (int)elapsedTime.TotalMinutes % 60;
+            int seconds = (int)elapsedTime.TotalSeconds % 60;
+
+            // Display the total time in the desired format
+            Console.WriteLine($"Time taken: {hours:00}:{minutes:00}:{seconds:00}");
+
+            // If the user requests, show the correct answers
+            Console.WriteLine("Do you want to see the correct answers? (yes/no)");
+            string showAnswers = Console.ReadLine().ToLower();
+
+            if (showAnswers == "yes")
+            {
+                ShowCorrectAnswers(questionType);
+            }
+        }
+        // To show the Correct Answers.
+        static void ShowCorrectAnswers(int questionType)
+        {
+            switch (questionType)
+            {
+                case 1:
+                    Console.WriteLine("True or False Questions:");
+                    foreach (var question in trueFalseQuestions)
+                    {
+                        Console.WriteLine($"{question.Key}: {question.Value}");
+                    }
+                    break;
+                case 2:
+                    Console.WriteLine("Open-Ended Questions:");
+                    foreach (var question in openEndedQuestions)
+                    {
+                        Console.WriteLine($"{question.Key}: {question.Value}");
+                    }
+                    break;
+                case 3:
+                    Console.WriteLine("Multiple Choice Questions:");
+                    foreach (var question in multipleChoiceQuestions)
+                    {
+                        string[] choices = question.Value.Take(question.Value.Length - 1).ToArray();
+                        int correctChoiceIndex = int.Parse(question.Value.Last());
+                        Console.WriteLine($"{question.Key}: {choices[correctChoiceIndex]}"); // Display the correct choice
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Invalid question type.");
+                    break;
+            }
         }
 
         static void PlayTrueFalseQuiz()
@@ -377,7 +443,7 @@ namespace Geography_Quiz_Game
             if (trueFalseQuestions.Count == 0)
             {
                 Console.WriteLine("Create some questions first.");
-                return; // Return to the main menu
+                return;
             }
 
             int score = 0;
@@ -385,7 +451,7 @@ namespace Geography_Quiz_Game
             // Iterate through each true/false question
             foreach (var question in trueFalseQuestions)
             {
-                Console.WriteLine(question.Key); // Display the question
+                Console.WriteLine(question.Key);
                 Console.Write("Your answer (True/False): ");
                 string userAnswer = Console.ReadLine().ToLower();
 
@@ -411,7 +477,7 @@ namespace Geography_Quiz_Game
             if (openEndedQuestions.Count == 0)
             {
                 Console.WriteLine("Create some Open-Ended questions first.");
-                return; // Return to the main menu
+                return;
             }
 
             int score = 0;
@@ -419,7 +485,7 @@ namespace Geography_Quiz_Game
             // Iterate through each open-ended question
             foreach (var question in openEndedQuestions)
             {
-                Console.WriteLine(question.Key); // Display the question
+                Console.WriteLine(question.Key); 
                 Console.Write("Your answer: ");
                 string userAnswer = Console.ReadLine().ToLower();
 
@@ -445,7 +511,7 @@ namespace Geography_Quiz_Game
             if (multipleChoiceQuestions.Count == 0)
             {
                 Console.WriteLine("Create some questions first.");
-                return; // Return to the main menu
+                return; 
             }
 
             int score = 0;
@@ -453,7 +519,7 @@ namespace Geography_Quiz_Game
             // Iterate through each multiple-choice question
             foreach (var question in multipleChoiceQuestions)
             {
-                Console.WriteLine(question.Key); // Display the question
+                Console.WriteLine(question.Key); 
 
                 // Display the choices
                 for (int i = 0; i < question.Value.Length - 1; i++)
